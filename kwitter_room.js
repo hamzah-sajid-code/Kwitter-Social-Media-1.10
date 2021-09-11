@@ -156,7 +156,7 @@ function sendFriendRequest() {
                   }
             });
       });
-document.getElementById('firendName').innerHTML = '';
+document.getElementById('firendName').value = '';
 }
 // console.log(fnS)
 
@@ -285,7 +285,7 @@ function getFriendData() {
                         console.log(firebase_message_id)
                         console.log(message_data['Friend'])
                         if (message_data['Friend'] == 'True') {
-                              firendOut = '<div id=' + firebase_message_id.split(' ').join('_') + ' onclick="redirectToFriendChat()">' + firebase_message_id + '</div><hr>';
+                              firendOut = '<div id=' + firebase_message_id.split(' ').join('_') + ' onclick="redirectToFriendChat(this.id)">' + firebase_message_id + '</div><hr>';
                               document.getElementById('firendoutput').innerHTML += firendOut;
 
                               friendName = firebase_message_id;
@@ -296,9 +296,9 @@ function getFriendData() {
       });
 }
 
-function redirectToFriendChat() {
+function redirectToFriendChat(id) {
       localStorage.setItem('whichredirect', roomnameoffriendtalk);
-      localStorage.setItem('friendNameRedirect', friendName)
+      localStorage.setItem('friendNameRedirect', id.split('_').join(' '))
       window.location = 'friend.html';
 }
 getYourFriendsRequests();
