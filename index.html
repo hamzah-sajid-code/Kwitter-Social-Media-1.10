@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kwitter</title>
+<link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<center>
+	<h1 class="header">	
+		Kwitter	<sup>
+	<img src="m2.png">
+	</sup>
+</h1>
+	<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11 login_div">
+	<img src="logo.png" class="logo">
+		<h3 >See what is happening in the world right now</h3>
+		<h4 >Join Kwitter today</h4>
+		<div class="form-group">
+		  <label >User Name:</label>
+
+		</div>
+		<input type="text" id='name' size="50px" class="form-control" placeholder="User Name" autocomplete="off">
+<br>
+		<input type="text" id='password' size="50px" class="form-control" placeholder="Password" autocomplete="off">
+		<br>
+		<label style="color: red; text-align: left;" id="allLogin"></label>
+
+		<button id="login_button" class="btn btn-primary" onclick="addUser()">Log in</button>
+		<br>
+		<br>
+		<button id="login_button" class="btn btn-success" onclick="reg()">Register</button>
+		<br><br>
+	</div>
+</center>
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-storage.js"></script>
+	<script>
+		const firebaseConfig = {
+		  apiKey: "AIzaSyDp3U_1hoPwp5GNzbclJCQmY-28cQwYF0w",
+		  authDomain: "kwitter-database-03.firebaseapp.com",
+		  projectId: "kwitter-database-03",
+		  storageBucket: "kwitter-database-03.appspot.com",
+		  messagingSenderId: "662247952435",
+		  appId: "1:662247952435:web:f7277a910b15c8ab3d9346"
+		};
+	  
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+	  </script>
+<script src="kwitter.js"></script>
+
+</body>
+</html>
