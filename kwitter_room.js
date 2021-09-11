@@ -2,7 +2,7 @@ namee = localStorage.getItem('User name');
 var ppN = document.getElementById('pp').value;
 console.log(ppN)
 var fns = '';
-
+var roomnameoffriendtalk = [];
 document.getElementById('name').innerHTML = namee;
 var gotFriendToAccept = '';
 
@@ -156,7 +156,7 @@ function sendFriendRequest() {
                   }
             });
       });
-document.getElementById('firendName').value = '';
+      document.getElementById('firendName').value = '';
 }
 // console.log(fnS)
 
@@ -285,11 +285,11 @@ function getFriendData() {
                         console.log(firebase_message_id)
                         console.log(message_data['Friend'])
                         if (message_data['Friend'] == 'True') {
-                              firendOut = '<div id=' + firebase_message_id.split(' ').join('_') + ' onclick="redirectToFriendChat(this.id)">' + firebase_message_id + '</div><hr>';
+                              firendOut = '<div id=' + firebase_message_id.split(' ').join('_') +'.'+message_data['FriendChatRoomId'] +' onclick="redirectToFriendChat(this.id)">' + firebase_message_id + '</div><hr>';
                               document.getElementById('firendoutput').innerHTML += firendOut;
 
                               friendName = firebase_message_id;
-                              roomnameoffriendtalk = message_data['FriendChatRoomId'];
+                              roomnameoffriendtalk = message_data;
                         }
                   }
             });
@@ -297,8 +297,10 @@ function getFriendData() {
 }
 
 function redirectToFriendChat(id) {
-      localStorage.setItem('whichredirect', roomnameoffriendtalk);
-      localStorage.setItem('friendNameRedirect', id.split('_').join(' '))
+      editval1 = id.split('_').join(' ').substring(id.indexOf("."));
+      editval2 = editval1.split('. ').join('');
+      localStorage.setItem('friendNameRedirect', id.substring(0, id.indexOf('.')).split('_').join(' '));
+      localStorage.setItem('whichredirect', editval2)
       window.location = 'friend.html';
 }
 getYourFriendsRequests();
